@@ -1,0 +1,15 @@
+<!Doctype html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Empleados</title>
+</head>
+<body> 
+    <h1>Lista de Empleados</h1>
+    <ul>
+        {% for empleado in empleados %}
+            <li>No hay empleados registrados aun</li>
+            {% endfor %}
+    </ul>    <a href="/">Volver al menu principal</a>
+    </body>
+    </html>
