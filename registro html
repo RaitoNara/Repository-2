@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Registro de Empleado</title>
+</head>
+<body>
+    <h1>Registrar Nuevo Empleado</h1>
+    <form method="post" action="/guardar">
+        <label fpr="nombre">Nombre</Nombre:></label>
+        <input type="text" id="nombre" name="nombre" required><br>
+        <label for="apellido">Apellido</label>
+        <input type="text" name="apellido" id="puesto" required>
+        <br>
+        <label for="puesto">Puesto</label>
+        <input type="text" name="puesto" id="puesto" required>
+        <br>
+        <label for="salario">Salario</label>
+        <input type="number" name="salario" id="salario" required>
+        <br>
+        <button type="submit">Guardar</button>
+    </form>
+</body>
+    </html>
+    
