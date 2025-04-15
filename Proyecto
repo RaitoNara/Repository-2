@@ -1,0 +1,38 @@
+from flask import Flask, render_template, request, redirect, url_for
+# Inicializamos la aplicacion de Flask
+app = Flask(__name__)
+
+empleados = []#Lista para empleados(simula una basa de datos)
+class empelado:#Creamos una clase para representar a los empleados
+    def __init__(self, nombre, apellido, puesto, salario):
+        self.nombre = nombre
+        self.apellido = apellido
+        self.puesto = puesto
+        self.salario = salario
+
+    def calcular_impuestos(self):
+        return self.salario * 0.1 if self.salario > 5000 else 0
+        
+@app.route('/')#Ruta prncipal con el menu
+def index():#"" de opciones
+    return render_template('index.html')
+
+@app.route('/agregar', methods=['GET', 'POST'])#Ruta para agregar empleados
+def registro():
+    if request.method == "POST":#Captura los datos del formulario
+            nombre = request.form['nombre']
+            apellido = request.form['apellido']
+            puesto = request.form['puesto']
+            salario = float(request.form['salario'])
+            nuevo_empleado = empelado(nombre, apellido, puesto, salario)
+        #creamos un objeto de la clase empleado y lo agregamos a la lista
+            empleados.append(nuevo_empleado)
+            return redirect(url_for("lista"))#Redirigimos a la lista de empleados
+    return render_template('registro.html')
+
+@app.route('/lista')Ruta para mostrar la lista de empleados
+def lista():
+        return render_template('lista.html', empleados=empleados)
+
+if __name__ == '__main__':
+  app.run(debug=True)
